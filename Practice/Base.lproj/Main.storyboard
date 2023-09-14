@@ -1,54 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JMj-FC-uQJ">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="13u-6C-46t">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="JMj-FC-uQJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VPq-Mv-m1B">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Zdz-0V-8ZI"/>
+                        <segue destination="SSD-4d-r6q" kind="relationship" relationship="viewControllers" id="Dfb-aD-aZq"/>
+                        <segue destination="lbC-Nh-o5a" kind="relationship" relationship="viewControllers" id="gYk-2e-Qof"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q2d-BZ-ReF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1068" y="-652"/>
+        </scene>
+        <!--Swift-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Practice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SwiftListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="SwiftListViewController" customModule="Practice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NZw-Ep-cWU">
-                                <rect key="frame" x="0.0" y="770" width="393" height="48"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="lzI-ki-NXA"/>
-                                </constraints>
-                                <items>
-                                    <tabBarItem id="MiZ-9i-9ba">
-                                        <imageReference key="selectedImage" image="u.square" catalog="system" symbolScale="default"/>
-                                    </tabBarItem>
-                                    <tabBarItem selectedImage="r.square" catalog="system" id="kb0-Br-XUT"/>
-                                    <tabBarItem title="Item" id="ZlE-5m-m4A"/>
-                                </items>
-                            </tabBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pxW-p2-axC">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="kXS-jA-kzS"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="1hI-Zw-VKv"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="NZw-Ep-cWU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ctx-Dx-0VG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NZw-Ep-cWU" secondAttribute="bottom" id="IzO-WL-plb"/>
-                            <constraint firstItem="NZw-Ep-cWU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hJ6-O7-of4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pxW-p2-axC" secondAttribute="bottom" id="42I-xi-xTk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pxW-p2-axC" secondAttribute="trailing" id="Hkr-Q6-iTK"/>
+                            <constraint firstItem="pxW-p2-axC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PYW-db-KTi"/>
+                            <constraint firstItem="pxW-p2-axC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="vbB-Xg-rqf"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Swift" image="s.circle" catalog="system" selectedImage="s.circle.fill" id="H7E-t7-wsJ"/>
+                    <connections>
+                        <outlet property="tableView" destination="pxW-p2-axC" id="wBS-fO-Uv9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34" y="4"/>
+            <point key="canvasLocation" x="-1738" y="113"/>
+        </scene>
+        <!--RxSwift-->
+        <scene sceneID="aoI-xR-jDA">
+            <objects>
+                <viewController storyboardIdentifier="RxSwiftListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SSD-4d-r6q" customClass="RxSwiftListViewController" customModule="Practice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fI5-pc-Cdy">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="8qN-hk-MMK"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="RxSwift" image="r.circle" selectedImage="r.circle.fill" catalog="system" id="T7n-Fg-T9S"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ye-l9-aDm" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1069" y="113"/>
+        </scene>
+        <!--Combine-->
+        <scene sceneID="xxb-ST-xbb">
+            <objects>
+                <viewController storyboardIdentifier="CombineViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lbC-Nh-o5a" customClass="CombineViewController" customModule="Practice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sFy-aK-KSp">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="VVo-2N-heL"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Combine" image="c.circle" selectedImage="c.circle.fill" catalog="system" id="a6H-mb-Q8m"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dtA-jt-LyF" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-395" y="113"/>
         </scene>
     </scenes>
     <resources>
-        <image name="r.square" catalog="system" width="128" height="114"/>
-        <image name="u.square" catalog="system" width="128" height="114"/>
+        <image name="c.circle" width="128" height="128"/>
+        <image name="c.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="r.circle" width="128" height="128"/>
+        <image name="r.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="s.circle" catalog="system" width="128" height="123"/>
+        <image name="s.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
